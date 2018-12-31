@@ -21,4 +21,11 @@ export class BusinessService {
     this.http.post(`${this.uri}/add`, obj)
       .subscribe(res => console.log('Done'));
   }
+
+  getBusinesses() {
+    console.log('inside the get method');
+    return this
+            .http
+            .get(`${this.uri}`);
+  }
  }
