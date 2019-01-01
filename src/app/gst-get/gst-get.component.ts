@@ -11,7 +11,15 @@ export class GstGetComponent implements OnInit {
 
   businesses: Business[];
 
-  constructor(private bs: BusinessService) { }
+
+  constructor(private bs: BusinessService) {}
+
+  deleteBusiness(id) {
+    this.bs.deleteBusiness(id).subscribe(res => {
+      console.log('Deleted');
+      location.reload();
+    });
+  }
 
   ngOnInit() {
     this.bs
@@ -20,5 +28,4 @@ export class GstGetComponent implements OnInit {
       this.businesses = data;
     });
   }
-
 }
